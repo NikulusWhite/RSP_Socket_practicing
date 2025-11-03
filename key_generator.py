@@ -1,5 +1,6 @@
 import math
 import random
+import os
 
 class KeyGen:
     def __init__(self, p, q):
@@ -28,3 +29,33 @@ class KeyGen:
         with open('close_key.txt', 'w')as f:
             f.write(str(d) + '\n')
             f.write(str(n))
+
+start = input("Generate new keys?(y/n): ")
+if (start == 'y'):
+    print("Generation... Please wait")
+    prime_numbers=[]
+
+    with open('prime_numbers.txt', 'r') as f:
+        for line in f:
+            num = int(line.strip())
+            prime_numbers.append(num)
+
+    max_len = len(prime_numbers)
+    
+    random_number1 = random.randint(0,max_len - 1)
+    random_number2 = random.randint(0,max_len - 1)
+
+
+    if (random_number1 == random_number2):
+        print('(Un)expected error. Please try again')
+    else:
+        p = prime_numbers[random_number1]
+        q = prime_numbers[random_number2]
+        kg = KeyGen(p,q)
+        kg.key_creation()
+        print('Keys have been generated')
+
+
+else:
+    print('WARNING Old keys are used!')
+os.system('pause')
