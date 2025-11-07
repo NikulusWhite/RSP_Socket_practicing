@@ -3,11 +3,11 @@ import random
 
 
 class Encryptor():
-    def __init__(self, text, e, n):
-        self.text = text
+    def __init__(self, e, n):
         self.e = e  
         self.n = n  
-    def encryption(self):
+    def encryption(self, text):
+        self.text = text  
         encrypted_text = []
 
         for i in self.text:
@@ -19,5 +19,5 @@ class Encryptor():
             for el in encrypted_text:
                 letter = str(el) + '\n'
                 f.write(letter)
-        return encrypted_text
+        return str(encrypted_text)
 
