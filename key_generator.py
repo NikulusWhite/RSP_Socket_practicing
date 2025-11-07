@@ -3,10 +3,11 @@ import random
 import os
 
 class KeyGen:
-    def __init__(self, p, q):
+    def __init__(self):
+        pass
+    def key_creation(self, p, q):
         self.p = p  
         self.q = q
-    def key_creation(self):
         n = self.p * self.q  
         
         f_n = (self.p - 1) * (self.q - 1)
@@ -30,7 +31,7 @@ class KeyGen:
             f.write(str(d) + '\n')
             f.write(str(n))
 
-start = input("Generate new keys?(y/n): ")
+'''start = input("Generate new keys?(y/n): ")
 if (start == 'y'):
     print("Generation... Please wait")
     prime_numbers=[]
@@ -58,4 +59,4 @@ if (start == 'y'):
 
 else:
     print('WARNING Old keys are used!')
-os.system('pause')
+os.system('pause')'''
